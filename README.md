@@ -54,6 +54,13 @@ base:
     - basicapps
 ```
 
+![screenshot1](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-02%2018_15_26-jussi%40conman-VM_%20_srv_salt.png "Screenshot 1")
+
+### d & f)
+Lainasin Jori Laineen [LAMP-tilaa](https://github.com/joonaleppalahti/CCM/blob/master/salt/srv/salt/lamp.sls), koska se hoitaa aika kätevästi LAMPin käyttöönoton (asennus, vakiosivun korvaus omalla). Tein sen lisäksi oman testisivun, jossa testataan sekä Apachen että UTF-8:n toimivuus (ääkköset tekstissä ja laskutoimituksen arvon tulostus sivulle).
+
+![screenshot2](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-02%2021_16_53-Jussi's%20placeholder%20web%20page.png "Screenshot 2")
+
 ### e)
 Komennolla `sudo salt '*' grains.item virtual` sain tarkistettua, että virtuaalikoneeni on virtuaalinen:
 ```
@@ -67,7 +74,3 @@ conman-VM:
     virtual:
         qemu
 ```
-
-### f)
-Lainasin Jori Laineen [LAMP-tilaa](https://github.com/joonaleppalahti/CCM/blob/master/salt/srv/salt/lamp.sls), koska se hoitaa aika kätevästi LAMPin käyttöönoton (asennus, vakiosivun korvaus omalla). Tein sen lisäksi oman testisivun, jossa testataan sekä Apachen että UTF-8:n toimivuus (ääkköset tekstissä ja laskutoimituksen arvon tulostus sivulle).
-
