@@ -20,3 +20,50 @@ More info at [Tero Karvinen's home page.](http://terokarvinen.com/2018/aikataulu
 >f) Oikeaa elämää. Säädä Saltilla jotain pientä, mutta oikeaa esimerkiksi omalta koneeltasi tai omalta virtuaalipalvelimelta. (Kannattaa kokeilla Saltia oikeassa elämässä, mutta jos se ei onnistu, rakenna jotain oikeaa konettasi vastaava virtuaaliympäristö ja tee asetus siinä).
 >
 >g) Vapaaehtoinen: asenna ja konfiugroi jokin palvelin Saltilla. (package-file-server)
+
+### c)
+Aloitin kurssin luomalla uuden virtuaalikoneen, johon asensin Ubuntu 16.04.4 LTS:n (64-bit). Virtuaalikoneen alustana toimii Proxmox-pohjainen kotipalvelimeni. Päivitin Ubuntuun uusimmat paketit ja otin palomuurin käyttöön. Tein palomuuriin aukot SSH:ta ja Salt-masteria varten, jonka jälkeen siirryin Promoxin selainpohjaisesta konsolista käyttämään Puttyä toisella koneella. Asensin tälle samalle koneelle sekä masterin että minionin, jonka jälkeen muutin minionin asetuksiin oikean hostin, käynnistin palvelut uudelleen ja hyväksyin minionin avaimen.
+
+Tämän jälkeen testasin toimivuutta ajamalla komennon `sudo salt '*' cmd.run 'hostname -I'`, joka palautti koneen IP-osoitteen. Siirryin kirjoittamaan tiloja, joista ensimmäinen on pelkkä testitiedoston luominen, ja toinen varmistaa muutaman perusohjelman asennuksen.
+
+Kansion `/srv/salt` sisältö on seuraava:
+```
+jussi@conman-VM:/srv/salt$ tail -n +1 *
+==> basicapps.sls <==
+basic_apps:
+  pkg.installed:
+    - pkgs:
+      - htop
+      - tree
+      - git
+
+==> hello.sls <==
+/tmp/helloworld.txt:
+  file.managed:
+    - source: salt://helloworld.txt
+
+==> helloworld.txt <==
+Hello salty world!
+
+// Created by salt-master
+
+==> top.sls <==
+base:
+  '*':
+    - hello
+    - basicapps
+```
+
+### e)
+Komennolla `sudo salt '*' grains.item virtual` sain tarkistettua, että virtuaalikoneeni on virtuaalinen:
+```
+jussi@conman-VM:/srv/salt$ sudo salt '*' grains.item virtual
+[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
+[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
+[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
+[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
+conman-VM:
+    ----------
+    virtual:
+        qemu
+```
