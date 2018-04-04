@@ -1,0 +1,4 @@
+Hello salty world!
+
+// Created by salt-master
+
