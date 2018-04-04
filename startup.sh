@@ -1,6 +1,6 @@
 setxkbmap fi
 sudo apt-get update
-sudo apt-get install -y git puppet tree htop
+sudo apt-get install -y git tree htop salt-minion salt-master
 
 cd
 
