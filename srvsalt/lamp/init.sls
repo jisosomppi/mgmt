@@ -1,9 +1,10 @@
 # Package
 
 install_lamp:
-  pkgs.installed:
-    - apache2
-    - libapache2-mod-php
+  pkg.installed:
+    - pkgs:
+      - apache2
+      - libapache2-mod-php
 
 # File
 
@@ -13,7 +14,8 @@ install_lamp:
 
 /etc/skel/public_html/index.php:
   file.managed:
-    - source: salt://lamp/user_index.html
+    - source: salt://lamp/user_index.php
+    - makedirs: True
 
 /etc/apache2/mods-available/php7.0.conf:
   file.managed:
