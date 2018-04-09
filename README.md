@@ -98,14 +98,49 @@ Asensin ensin Apachen koneelle manuaalisesti, jonka jälkeen korvasin vakiosivun
 
 Tämän jälkeen loin itselleni [esimerkin](http://terokarvinen.com/2018/apache-user-homepages-automatically-salt-package-file-service-example) mukaisen salt-tilan Apachen asennukseen ja käyttäjän sivujen käyttöönottoon. Ajoin tilan uudelle minionille saltin kautta, ja totesin sen toimineen.
 
-### H2c & H2e)
+### H2c)
 
 Asensin manuaalisesti paketin `libapache2-mod-php`, ja kävin kommentoimassa tarvittavat rivit pois tiedostosta `/etc/apache2/mods-available/php7.0.conf`. Kokeilin aiemmin tekemälläni sivulla PHP:n toimivuuden sekä yleisellä sivulla (`/var/www/html`) että käyttäjän kotisivulla (`~/public_html`), jonka jälkeen kopion muokatun asetustiedoston `/srv/salt` kansioon odottamaan käyttöä. Lisäsin aiempaan Apache-stateen PHP:n asennuksen ja asetustiedoston korvaamisen (sekä sen tarkistuksen palvelun uudelleenkäynnistystä varten).
 
-Lisäsin myös samalla vakiosivun lisäyksen `/etc/skel`:iin, jotta uusilla käyttäjillä olisi valmiiksi toimiva testisivu. Määritin myös tämän kohdan luomaan kansiot niiden puuttuessa.
+### H2d)
+
+Lisäsin ensin uuden testisivun "testi.sivu" `/etc/hosts`:iin, jonka jälkeen varmistin uudelleenohjauksen toimivuuden pingaamalla uutta osoitetta onnistuneesti. Tämän jälkeen muokkasin tiedostoa `/etc/apache2/sites-available/000-default.conf`, ja lisäsin sinne uuden virtualhostin, joka ohjaa kansioon `/var/www/html2`. Tein selkeyden vuoksi erilaisen testisivun tuohon kansioon, jotta sain helposti testattua sen toimivuuden. 
+
+![screenshot3](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-10%2002_02_08-jussi%40nacl_%20%7E_mgmt.png "Screenshot 3")
+
+Tämän jälkeen tein tästä seuraavan salt-staten:
+```
+# Package
+
+apache2:
+  pkg.installed:
+
+# File
+
+/etc/hosts:
+  file.managed:
+    - source: salt://vhost/hosts
+
+/etc/apache2/sites-available/000-default.conf:
+  file.managed:
+    - source: salt://vhost/testi.sivu.conf
+
+# Service
+
+apache2service:
+  service.running:
+    - name: apache2
+    - watch:
+      - file: /etc/apache2/sites-available/000-default.conf
+```
+
+Lisäsin virtual hostin vakiosivun luomisen aiempaan Apache-stateen.
+
+### H2e)
+
+Lisäsin vielä aiempaan Apache-stateen vakiosivun lisäyksen `/etc/skel`:iin, jotta uusilla käyttäjillä olisi valmiiksi toimiva testisivu. Määritin myös tämän kohdan luomaan kansiot niiden puuttuessa.
 
 Valmis Apache-state näyttää tältä:
-
 ```
 # Package
 
@@ -120,6 +155,11 @@ install_apache:
 /var/www/html/index.php:
   file.managed:
     - source: salt://apache/public_index.php
+
+/var/www/html2/index.php:
+  file.managed:
+    - source: salt://apache/alt_index.php
+    - makedirs: True
 
 /etc/skel/public_html/index.php:
   file.managed:
@@ -148,6 +188,3 @@ apache2service:
       - file: /etc/apache2/mods-enabled/userdir.load
       - file: /etc/apache2/mods-available/php7.0.conf
 ```
-
-### H2d)
-
