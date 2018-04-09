@@ -12,6 +12,11 @@ install_apache:
   file.managed:
     - source: salt://apache/public_index.php
 
+/var/www/html2/index.php:
+  file.managed:
+    - source: salt://apache/alt_index.php
+    - makedirs: True
+
 /etc/skel/public_html/index.php:
   file.managed:
     - source: salt://apache/user_index.php
