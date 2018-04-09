@@ -74,3 +74,20 @@ conman-VM:
     virtual:
         qemu
 ```
+
+## H2
+
+### Tehtävänanto
+>Tehtävät tästä eteenpäin (h2, h3…) tulee ratkaista tekemällä Saltin tila (state), ellei tehtävänannosta muuta ilmene. Tee ensin käsin, automatisoi vasta sitten. Muista testata lopputulos.
+>
+>a) Opiskele yllä aikataulussa olevat artikkelit. (Tätä lukutehtävää ei tarvitse raportoida). Luettava materiaali on kunkin tapaamiskerran kohdalla, esimerkiksi nyt “2. Package-file-server. [...] Luettavaa: Karvinen 2018: Pkg-File-Service – Control Daemons with Salt..”
+>
+>b) Laita käyttäjien kotisivut toimimaan Apachella.
+>
+>c) Laita PHP toimimaan käyttäjien kotisivuilla. (Huomaa, että PHP toimii oletuksena kaikkialla muualla kuin käyttäjien public_html-kotisivuilla.)
+>
+>d) Rakenna tila (state), joka tekee Apachelle uuden nimipohjaisen virtuaalipalvelimen (name based virtual hosting). Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
+>
+>e) Tee tila, joka laittaa esimerkkikotisivun uusille käyttäjille. Voit laittaa esimerkkikotisivu /etc/skel/:iin, niin se tulee automaattisesti ‘adduser tero’ komennolla käyttäjiä luodessa.
+>
+>f) Eri asetukset. Tee Package-File-Service tilalla eri asetuksia kuin ne, mitä tehtiin tunnilla; ja eri kuin mitä teit/teet h2 muissa kohdissa. Voit muuttaa jotain toista asetusta samoista demoneista tai valita kokonaan eri demonit.
