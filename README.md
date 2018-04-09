@@ -103,6 +103,7 @@ Tämän jälkeen loin itselleni [esimerkin](http://terokarvinen.com/2018/apache-
 Asensin manuaalisesti paketin `libapache2-mod-php`, ja kävin kommentoimassa tarvittavat rivit pois tiedostosta `/etc/apache2/mods-available/php7.0.conf`. Kokeilin aiemmin tekemälläni sivulla PHP:n toimivuuden sekä yleisellä sivulla (`/var/www/html`) että käyttäjän kotisivulla (`~/public_html`), jonka jälkeen kopion muokatun asetustiedoston `/srv/salt` kansioon odottamaan käyttöä. Lisäsin aiempaan Apache-stateen PHP:n asennuksen ja asetustiedoston korvaamisen (sekä sen tarkistuksen palvelun uudelleenkäynnistystä varten).
 
 ### H2d)
+*[Tähän kohtaan lähteenä](https://httpd.apache.org/docs/2.4/vhosts/examples.html#default)*
 
 Lisäsin ensin uuden testisivun "testi.sivu" `/etc/hosts`:iin, jonka jälkeen varmistin uudelleenohjauksen toimivuuden pingaamalla uutta osoitetta onnistuneesti. Tämän jälkeen muokkasin tiedostoa `/etc/apache2/sites-available/000-default.conf`, ja lisäsin sinne uuden virtualhostin, joka ohjaa kansioon `/var/www/html2`. Tein selkeyden vuoksi erilaisen testisivun tuohon kansioon, jotta sain helposti testattua sen toimivuuden. 
 
