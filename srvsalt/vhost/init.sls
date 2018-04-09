@@ -15,7 +15,8 @@ apache2:
 
 # Service
 
-apache2:
+apache2service:
   service.running:
+    - name: apache2
     - watch:
       - file: /etc/apache2/sites-available/000-default.conf
