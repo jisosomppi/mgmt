@@ -3,4 +3,4 @@ base:
     - hello
     - ssh
     - basicapps
-    - lamp
+    - apache
