@@ -91,3 +91,63 @@ conman-VM:
 >e) Tee tila, joka laittaa esimerkkikotisivun uusille käyttäjille. Voit laittaa esimerkkikotisivu /etc/skel/:iin, niin se tulee automaattisesti ‘adduser tero’ komennolla käyttäjiä luodessa.
 >
 >f) Eri asetukset. Tee Package-File-Service tilalla eri asetuksia kuin ne, mitä tehtiin tunnilla; ja eri kuin mitä teit/teet h2 muissa kohdissa. Voit muuttaa jotain toista asetusta samoista demoneista tai valita kokonaan eri demonit.
+
+### H2b)
+
+Asensin ensin Apachen koneelle manuaalisesti, jonka jälkeen korvasin vakiosivun uudella, omalla sivulla, joka testaa suoraan PHP:n ja UTF-8:n toimivuuden. Tämän jälkeen otin käyttäjien kotisivut käyttöön komennolla `sudo a2enmod userdir`, ja testasin käyttäjän kotisivun näkyvän selaimella.
+
+Tämän jälkeen loin itselleni [esimerkin](http://terokarvinen.com/2018/apache-user-homepages-automatically-salt-package-file-service-example) mukaisen salt-tilan Apachen asennukseen ja käyttäjän sivujen käyttöönottoon. Ajoin tilan uudelle minionille saltin kautta, ja totesin sen toimineen.
+
+### H2c & H2e)
+
+Asensin manuaalisesti paketin `libapache2-mod-php`, ja kävin kommentoimassa tarvittavat rivit pois tiedostosta `/etc/apache2/mods-available/php7.0.conf`. Kokeilin aiemmin tekemälläni sivulla PHP:n toimivuuden sekä yleisellä sivulla (`/var/www/html`) että käyttäjän kotisivulla (`~/public_html`), jonka jälkeen kopion muokatun asetustiedoston `/srv/salt` kansioon odottamaan käyttöä. Lisäsin aiempaan Apache-stateen PHP:n asennuksen ja asetustiedoston korvaamisen (sekä sen tarkistuksen palvelun uudelleenkäynnistystä varten).
+
+Lisäsin myös samalla vakiosivun lisäyksen `/etc/skel`:iin, jotta uusilla käyttäjillä olisi valmiiksi toimiva testisivu.
+
+Valmis Apache-state näyttää tältä:
+
+```
+# Package
+
+install_apache:
+  pkg.installed:
+    - pkgs:
+      - apache2
+      - libapache2-mod-php
+
+# File
+
+/var/www/html/index.php:
+  file.managed:
+    - source: salt://apache/public_index.php
+
+/etc/skel/public_html/index.php:
+  file.managed:
+    - source: salt://apache/user_index.php
+    - makedirs: True
+
+/etc/apache2/mods-available/php7.0.conf:
+  file.managed:
+    - source: salt://apache/php7.0.conf
+
+/etc/apache2/mods-enabled/userdir.conf:
+  file.symlink:
+    - target: ../mods-available/userdir.conf
+
+/etc/apache2/mods-enabled/userdir.load:
+  file.symlink:
+    - target: ../mods-available/userdir.load
+
+# Service
+
+apache2service:
+  service.running:
+    - name: apache2
+    - watch:
+      - file: /etc/apache2/mods-enabled/userdir.conf
+      - file: /etc/apache2/mods-enabled/userdir.load
+      - file: /etc/apache2/mods-available/php7.0.conf
+```
+
+### H2d)
+
