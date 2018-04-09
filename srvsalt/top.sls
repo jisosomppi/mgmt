@@ -4,3 +4,4 @@ base:
     - ssh
     - basicapps
     - apache
+    - vhost

@@ -11,7 +11,7 @@ apache2:
 
 /etc/apache2/sites-available/000-default.conf:
   file.managed:
-    - source: salt://vhost/000-default.conf
+    - source: salt://vhost/testi.sivu.conf
 
 # Service
 
