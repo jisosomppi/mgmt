@@ -4,6 +4,13 @@
 _This repository is a part of Haaga-Helia's Linux server management course, taught by Tero Karvinen. The course aims to teach students the proper use of centralized management, as well as the use of version control tools such as github.  
 More info at [Tero Karvinen's home page.](http://terokarvinen.com/2018/aikataulu-%e2%80%93-palvelinten-hallinta-ict4tn022-4-ti-5-ke-5-loppukevat-2018-5p)_
 
+## Yleistä reposta
+
+### Skriptit
+* `gitup`: 1-click github commit
+* `startup.sh`: tekee koneesta salt-masterin omilla asetuksilla
+* `spreadsalt.sh`: siirtää salt-masterin tiedostot paikalleen
+
 ## H1
 
 ### Tehtävänanto
