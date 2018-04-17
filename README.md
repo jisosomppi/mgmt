@@ -210,3 +210,17 @@ apache2service:
 >d) SSH-demonin portti: tee tila, joka asentaa SSH-demonin valittuun porttiin. Käytä portin valintaan Jinjaa, siten että sshd_config:issa “Port:”-kohdan arvo tulee Jinjan muuttujasta.
 >
 >e) Kokeile jonkun toisen opiskelijan tekemää Salt-tilaa. Kokeiltava tila voi olla mistä vain harjoituksesta. Opiskelijoiden raportteja ja koodeja löydät tämän sivun perästä kommenteista.
+
+### H3b)
+
+Tein ensimmäiseksi Jinja-tilaksi yksinkertaisen Hello world! -tilan, joka luo testitiedoston minionille ja täyttää sen statessa määritellyllä tiedolla:
+
+```
+/tmp/hellojinja.txt:
+  file.managed:
+    - source: salt://hellojinja/hellojinja.txt
+    - template: jinja
+    - context:
+      filecontent: Hello world!
+
+```
