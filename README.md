@@ -61,12 +61,12 @@ base:
     - basicapps
 ```
 
-![screenshot1](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-02%2018_15_26-jussi%40conman-VM_%20_srv_salt.png "Screenshot 1")
+![screenshot1](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-02%2018_15_26-jussi%40conman-VM_%20_srv_salt.png "Screenshot 1")
 
 ### H1d & H1f)
 Lainasin Jori Laineen [LAMP-tilaa](https://github.com/joonaleppalahti/CCM/blob/master/salt/srv/salt/lamp.sls), koska se hoitaa aika kätevästi LAMPin käyttöönoton (asennus, vakiosivun korvaus omalla). Tein sen lisäksi oman testisivun, jossa testataan sekä Apachen että UTF-8:n toimivuus (ääkköset tekstissä ja laskutoimituksen arvon tulostus sivulle).
 
-![screenshot2](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-02%2021_16_53-Jussi's%20placeholder%20web%20page.png "Screenshot 2")
+![screenshot2](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-02%2021_16_53-Jussi's%20placeholder%20web%20page.png "Screenshot 2")
 
 ### H1e)
 Komennolla `sudo salt '*' grains.item virtual` sain tarkistettua, että virtuaalikoneeni on virtuaalinen:
@@ -114,7 +114,7 @@ Asensin manuaalisesti paketin `libapache2-mod-php`, ja kävin kommentoimassa tar
 
 Lisäsin ensin uuden testisivun "testi.sivu" `/etc/hosts`:iin, jonka jälkeen varmistin uudelleenohjauksen toimivuuden pingaamalla uutta osoitetta onnistuneesti. Tämän jälkeen muokkasin tiedostoa `/etc/apache2/sites-available/000-default.conf`, ja lisäsin sinne uuden virtualhostin, joka ohjaa kansioon `/var/www/html2`. Tein selkeyden vuoksi erilaisen testisivun tuohon kansioon, jotta sain helposti testattua sen toimivuuden. 
 
-![screenshot3](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-10%2002_02_08-jussi%40nacl_%20%7E_mgmt.png "Screenshot 3")
+![screenshot3](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-10%2002_02_08-jussi%40nacl_%20%7E_mgmt.png "Screenshot 3")
 
 Tämän jälkeen tein tästä seuraavan salt-staten:
 ```
@@ -226,11 +226,11 @@ Tein ensimmäiseksi Jinja-tilaksi yksinkertaisen Hello world! -tilan, joka luo t
 ```
 Ajoin tilan paikalliselle minionille:
 
-![screenshot4](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_47_52-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 4")
+![screenshot4](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-17%2020_47_52-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 4")
 
 Jonka jälkeen tarkistin tilan toimineen toivotusti:
 
-![screenshot5](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_49_58-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 5")
+![screenshot5](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-17%2020_49_58-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 5")
 
 ### H3c)
 
@@ -252,5 +252,6 @@ Tein for in -silmukan, joka tekee `/tmp`-kansioon alikansion ja kolme testitiedo
 
 Ajoin tilan ja tarkistin sen toimineen odotetusti:
 
-![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2021_16_15-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
-![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2021_16_51-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
+![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-17%2021_16_15-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
+
+![screenshot7](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-17%2021_16_51-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 7")
