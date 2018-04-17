@@ -231,3 +231,26 @@ Ajoin tilan paikalliselle minionille:
 Jonka jälkeen tarkistin tilan toimineen toivotusti:
 
 ![screenshot5](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_49_58-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 5")
+
+### H3c)
+
+Tein for in -silmukan, joka tekee `/tmp`-kansioon alikansion ja kolme testitiedostoa:
+
+```
+{% for testfile in ['testone.txt', 'testtwo.txt', 'testthree.txt'] %}
+
+/tmp/loop/{{ testfile }}:
+  file.managed:
+    - source: salt://jinjaloop/loopbase.txt
+    - makedirs: True
+    - template: jinja
+    - context:
+      file: {{ testfile }}
+
+{% endfor %}
+```
+
+Ajoin tilan ja tarkistin sen toimineen odotetusti:
+
+![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2021_16_15-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
+![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2021_16_51-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
