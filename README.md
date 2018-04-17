@@ -210,3 +210,47 @@ apache2service:
 >d) SSH-demonin portti: tee tila, joka asentaa SSH-demonin valittuun porttiin. Käytä portin valintaan Jinjaa, siten että sshd_config:issa “Port:”-kohdan arvo tulee Jinjan muuttujasta.
 >
 >e) Kokeile jonkun toisen opiskelijan tekemää Salt-tilaa. Kokeiltava tila voi olla mistä vain harjoituksesta. Opiskelijoiden raportteja ja koodeja löydät tämän sivun perästä kommenteista.
+
+### H3b)
+
+Tein ensimmäiseksi Jinja-tilaksi yksinkertaisen Hello world! -tilan, joka luo testitiedoston minionille ja täyttää sen statessa määritellyllä tiedolla:
+
+```
+/tmp/hellojinja.txt:
+  file.managed:
+    - source: salt://hellojinja/hellojinja.txt
+    - template: jinja
+    - context:
+      filecontent: Hello world!
+
+```
+Ajoin tilan paikalliselle minionille:
+
+![screenshot4](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_47_52-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 4")
+
+Jonka jälkeen tarkistin tilan toimineen toivotusti:
+
+![screenshot5](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_49_58-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 5")
+
+### H3c)
+
+Tein for in -silmukan, joka tekee `/tmp`-kansioon alikansion ja kolme testitiedostoa:
+
+```
+{% for testfile in ['testone.txt', 'testtwo.txt', 'testthree.txt'] %}
+
+/tmp/loop/{{ testfile }}:
+  file.managed:
+    - source: salt://jinjaloop/loopbase.txt
+    - makedirs: True
+    - template: jinja
+    - context:
+      file: {{ testfile }}
+
+{% endfor %}
+```
+
+Ajoin tilan ja tarkistin sen toimineen odotetusti:
+
+![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2021_16_15-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
+![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2021_16_51-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
