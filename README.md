@@ -224,3 +224,10 @@ Tein ensimmäiseksi Jinja-tilaksi yksinkertaisen Hello world! -tilan, joka luo t
       filecontent: Hello world!
 
 ```
+Ajoin tilan paikalliselle minionille:
+
+![screenshot4](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_47_52-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 4")
+
+Jonka jälkeen tarkistin tilan toimineen toivotusti:
+
+![screenshot5](https://raw.githubusercontent.com/jisosomppi/mgmt/master/2018-04-17%2020_49_58-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 5")
