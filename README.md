@@ -255,3 +255,23 @@ Ajoin tilan ja tarkistin sen toimineen odotetusti:
 ![screenshot6](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-17%2021_16_15-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 6")
 
 ![screenshot7](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-17%2021_16_51-saltmaster%40nacl_%20%7E_mgmt_srvsalt_jinjaloop.png "Screenshot 7")
+
+### H3d)
+
+Muokkasin hieman aiemmin tehtyä SSH-statea lisäämällä siihen Jinja-templaten:
+
+```
+openssh-server:
+  pkg.installed
+
+/etc/ssh/sshd_config:
+  file.managed:
+    - source: salt://ssh/sshd_config
+    - template: jinja
+    - context:
+      sshd_port: 8888
+sshd:
+  service.running:
+    - watch:
+      - file: /etc/ssh/sshd_config
+```
