@@ -196,3 +196,17 @@ apache2service:
       - file: /etc/apache2/mods-enabled/userdir.load
       - file: /etc/apache2/mods-available/php7.0.conf
 ```
+
+## H3
+
+### Tehtävänanto
+
+>a) Opiskele yllä aikataulussa olevat artikkelit. Noissa artikkeleissa opetetaan ne asiat, joilla läksyt saa tehtyä. Tätä lukutehtävää ei tarvitse raportoida. Luettava materiaali on kunkin tapaamiskerran kohdalla.
+>
+>b) Tiedosto muotista: tee yksinkertainen SLS-tilatiedosto, joka laittaa muuttujan tiedostoon. Käytä jinjan kontekstimuuttujaa (template: jinja, context: …).
+>
+>c) SLS tilaa Jinjalla: tee yksinkertainen SLS-tilatiedosto, joka käyttää for-in -silmukaa. Voit esimerkiksi tehdä kolme tiedostoa silmukalla. (Tässä tehtävässä siis käytetään jinjaa vain SLS-tiedoston sisällä, älä sotke samaan esimerkkiin tekstitiedostojen sisällön muuttamista.)
+>
+>d) SSH-demonin portti: tee tila, joka asentaa SSH-demonin valittuun porttiin. Käytä portin valintaan Jinjaa, siten että sshd_config:issa “Port:”-kohdan arvo tulee Jinjan muuttujasta.
+>
+>e) Kokeile jonkun toisen opiskelijan tekemää Salt-tilaa. Kokeiltava tila voi olla mistä vain harjoituksesta. Opiskelijoiden raportteja ja koodeja löydät tämän sivun perästä kommenteista.
