@@ -8,6 +8,9 @@ install_apache:
 
 # File
 
+/var/www/html/index.html:
+  file.absent
+
 /var/www/html/index.php:
   file.managed:
     - source: salt://apache/public_index.php
