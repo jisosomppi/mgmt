@@ -279,3 +279,7 @@ sshd:
 Ajoin tilan minionilla: 
 
 ![screenshot8](https://github.com/jisosomppi/mgmt/blob/master/images/2018-04-17%2021_40_32-saltmaster%40nacl_%20%7E_mgmt.png "Screenshot 8")
+
+*Portin vaihtaminen ei katkaissut käynnissä olevaa SSH-yhteyttä!*
+
+Tämän jälkeen kokeilin kirjautua minioniin uudelleen SSH-yhteydellä, ja portin 22 käytöstä oli tuloksena virhe. Uudella portilla kirjautuminen onnistui normaalisti.
