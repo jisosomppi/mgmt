@@ -1,3 +1,5 @@
 base:
-  remoteminion:
-    - sshpillar
+  'remote*':
+    - remote
+  'local*':
+    - local
