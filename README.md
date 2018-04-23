@@ -14,10 +14,7 @@ More info at [Tero Karvinen's home page.](http://terokarvinen.com/2018/aikataulu
 ## H1
 
 ### Tehtävänanto
->a) Lue virallisesta Salt Getting Started Guide -kirjasta luvut Understanding SaltStack (noin 8 alasivua) ja SaltStack Fundamentals (6 alasivua, ei tarvitse asentaa demoympäristöä) ja SaltStack Configuration Management: Functions (1 alasivu). (Tätä lukutehtävää ei tarvitse raportoida).
->
->b) Silmäile Laineen 2017 varastossa olevia salt -asetuksia. (Tätä lukutehtävää ei tarvitse raportoida).
->
+
 >c) Asenna Salt Master ja Slave pull-arkkitehtuurilla (eli master on server). Voit laittaa herran ja orjan myös samalle koneelle. Kokeile suorittamalla salt:illa komentoja etänä.
 >
 >d) Kokeile jotain Laineen esimerkistä lainattua tilaa tai tee jostain tilasta oma muunnelma. Muista testata lopputuloksen toimivuus. Huomaa, että varastossa on myös keskeneräisiä esimerkkejä, kuten Battlenet-asennus Windowsille.
@@ -85,9 +82,7 @@ conman-VM:
 ## H2
 
 ### Tehtävänanto
->Tehtävät tästä eteenpäin (h2, h3…) tulee ratkaista tekemällä Saltin tila (state), ellei tehtävänannosta muuta ilmene. Tee ensin käsin, automatisoi vasta sitten. Muista testata lopputulos.
->
->a) Opiskele yllä aikataulussa olevat artikkelit. (Tätä lukutehtävää ei tarvitse raportoida). Luettava materiaali on kunkin tapaamiskerran kohdalla, esimerkiksi nyt “2. Package-file-server. [...] Luettavaa: Karvinen 2018: Pkg-File-Service – Control Daemons with Salt..”
+>_Tehtävät tästä eteenpäin (h2, h3…) tulee ratkaista tekemällä Saltin tila (state), ellei tehtävänannosta muuta ilmene. Tee ensin käsin, automatisoi vasta sitten. Muista testata lopputulos._
 >
 >b) Laita käyttäjien kotisivut toimimaan Apachella.
 >
@@ -201,8 +196,6 @@ apache2service:
 
 ### Tehtävänanto
 
->a) Opiskele yllä aikataulussa olevat artikkelit. Noissa artikkeleissa opetetaan ne asiat, joilla läksyt saa tehtyä. Tätä lukutehtävää ei tarvitse raportoida. Luettava materiaali on kunkin tapaamiskerran kohdalla.
->
 >b) Tiedosto muotista: tee yksinkertainen SLS-tilatiedosto, joka laittaa muuttujan tiedostoon. Käytä jinjan kontekstimuuttujaa (template: jinja, context: …).
 >
 >c) SLS tilaa Jinjalla: tee yksinkertainen SLS-tilatiedosto, joka käyttää for-in -silmukaa. Voit esimerkiksi tehdä kolme tiedostoa silmukalla. (Tässä tehtävässä siis käytetään jinjaa vain SLS-tiedoston sisällä, älä sotke samaan esimerkkiin tekstitiedostojen sisällön muuttamista.)
@@ -283,3 +276,13 @@ Ajoin tilan minionilla:
 *Portin vaihtaminen ei katkaissut käynnissä olevaa SSH-yhteyttä!*
 
 Tämän jälkeen kokeilin kirjautua minioniin uudelleen SSH-yhteydellä, ja portin 22 käytöstä oli tuloksena virhe. Uudella portilla kirjautuminen onnistui normaalisti.
+
+## H4
+
+### Tehtävänanto
+
+>b) Tee kahdella orjalla esimerkki, jossa orjat saavat eri muuttujan pilarista. Tarkista ‘pillars.items’, että kummalekin orjalle mene eri tieto. Tee jokin muu kuin tunnilla tehty sshd-esimerkki.
+>
+>c) Tee kahdella orjalla esimerkki, jossa toinen orja saa muuttujan pilarista ja toinen käyttää oletusarvoa (pillar.get). Tee jokin muu kuin tunnilla tehty sshd-esimerkki.
+
+### H4b)
