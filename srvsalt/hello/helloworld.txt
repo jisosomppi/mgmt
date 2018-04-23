@@ -1,4 +1,3 @@
-Hello salty world!
+Hello {{ username }}!
 
 // Created by salt-master
-
