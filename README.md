@@ -295,4 +295,4 @@ Määritin pillariin kolmelle eri konetyypille kaksi eri muuttujaa, ssh-portin j
 
 Määritin uuden minionin salt-ID:ksi "rogueminion", joka ei vastaa yhtään osumaa pilarissa. Tämän jälkeen testasin `hello`-tilaa, joka luo minioneille tiedoston `/tmp/helloworld.txt`. Komento loi halutusti tuon tiedoston jokaiselle minionille, jonka jälkeen tarkistin sen sisällön kultakin koneelta:
 
-![screenshot10](https://github.com/jisosomppi/mgmt/blob/master/images/Screenshot_2018-04-23_12-49-10.png?raw=true "Screenshot 10")
+![screenshot10](https://github.com/jisosomppi/mgmt/blob/master/images/Screenshot_2018-04-23_12-53-28.png?raw=true "Screenshot 10")
