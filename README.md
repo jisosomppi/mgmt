@@ -286,3 +286,8 @@ Tämän jälkeen kokeilin kirjautua minioniin uudelleen SSH-yhteydellä, ja port
 >c) Tee kahdella orjalla esimerkki, jossa toinen orja saa muuttujan pilarista ja toinen käyttää oletusarvoa (pillar.get). Tee jokin muu kuin tunnilla tehty sshd-esimerkki.
 
 ### H4b)
+
+Määritin pillariin kolmelle eri konetyypille kaksi eri muuttujaa, ssh-portin ja helloworld-tiedostoon tulostuvan käyttäjänimen. Tarkistin komennolla `sudo salt '*' pillar.items`, että kukin minion sai tietoonsa vain sen, mitä kuuluikin:
+
+![screenshot9](https://github.com/jisosomppi/mgmt/blob/master/images/Screenshot_2018-04-23_12-43-44.png?raw=true "Screenshot 9")
+
