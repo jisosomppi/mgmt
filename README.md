@@ -31,7 +31,7 @@ Aloitin kurssin luomalla uuden virtuaalikoneen, johon asensin Ubuntu 16.04.4 LTS
 Tämän jälkeen testasin toimivuutta ajamalla komennon `sudo salt '*' cmd.run 'hostname -I'`, joka palautti koneen IP-osoitteen. Siirryin kirjoittamaan tiloja, joista ensimmäinen on pelkkä testitiedoston luominen, ja toinen varmistaa muutaman perusohjelman asennuksen.
 
 Kansion `/srv/salt` sisältö on seuraava:
-```
+``` yaml
 jussi@conman-VM:/srv/salt$ tail -n +1 *
 ==> basicapps.sls <==
 basic_apps:
@@ -112,7 +112,7 @@ Lisäsin ensin uuden testisivun "testi.sivu" `/etc/hosts`:iin, jonka jälkeen va
 ![screenshot3](https://raw.githubusercontent.com/jisosomppi/mgmt/master/images/2018-04-10%2002_02_08-jussi%40nacl_%20%7E_mgmt.png "Screenshot 3")
 
 Tämän jälkeen tein tästä seuraavan salt-staten:
-```
+``` yaml
 # Package
 
 apache2:
@@ -144,7 +144,7 @@ Lisäsin virtual hostin vakiosivun luomisen aiempaan Apache-stateen.
 Lisäsin vielä aiempaan Apache-stateen vakiosivun lisäyksen `/etc/skel`:iin, jotta uusilla käyttäjillä olisi valmiiksi toimiva testisivu. Määritin myös tämän kohdan luomaan kansiot niiden puuttuessa.
 
 Valmis Apache-state näyttää tältä:
-```
+``` yaml
 # Package
 
 install_apache:
@@ -208,7 +208,7 @@ apache2service:
 
 Tein ensimmäiseksi Jinja-tilaksi yksinkertaisen Hello world! -tilan, joka luo testitiedoston minionille ja täyttää sen statessa määritellyllä tiedolla:
 
-```
+``` yaml
 /tmp/hellojinja.txt:
   file.managed:
     - source: salt://hellojinja/hellojinja.txt
@@ -229,7 +229,7 @@ Jonka jälkeen tarkistin tilan toimineen toivotusti:
 
 Tein for in -silmukan, joka tekee `/tmp`-kansioon alikansion ja kolme testitiedostoa:
 
-```
+``` python
 {% for testfile in ['testone.txt', 'testtwo.txt', 'testthree.txt'] %}
 
 /tmp/loop/{{ testfile }}:
@@ -253,7 +253,7 @@ Ajoin tilan ja tarkistin sen toimineen odotetusti:
 
 Muokkasin hieman aiemmin tehtyä SSH-statea lisäämällä siihen Jinja-templaten:
 
-```
+``` yaml
 openssh-server:
   pkg.installed
 
