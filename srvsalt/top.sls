@@ -1,6 +1,8 @@
 base:
   '*':
     - hello
+
+  'local*':
     - ssh
     - basicapps
 
