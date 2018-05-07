@@ -299,6 +299,10 @@ Määritin uuden minionin salt-ID:ksi "rogueminion", joka ei vastaa yhtään osu
 
 ## H5
 
+>a) Valitse aihe omaksi kurssityöksi ja varaa se kommenttina aikataulusivun perään.
+>
+>b) Julkaise raportti MarkDownilla. Jos käytät GitHub:ia, se tekee muotoilun automaattisesti “.md”-päätteisiin dokumentteihin.
+>
 >c) Aja oma Salt-tila suoraan git-varastosta. Voit joko tehdä tilan alusta lähtien itse tai forkata sirottimen.
 
 ### H5c)
