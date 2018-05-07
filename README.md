@@ -306,6 +306,6 @@ Määritin uuden minionin salt-ID:ksi "rogueminion", joka ei vastaa yhtään osu
 >c) Aja oma Salt-tila suoraan git-varastosta. Voit joko tehdä tilan alusta lähtien itse tai forkata sirottimen.
 
 ### H5c)
-Salt-tilojen ajaminen omasta varastosta onnistuu helposti, ohjaamalla komennot oikeaan kansioon:
-`wget https://raw.githubusercontent.com/jisosomppi/mgmt/master/startup.sh && bash startup.sh` Ajaa tekemäni startup-skriptin, joka mm. kloonaa tällä kurssilla käyttämäni Git-repon
-`sudo salt-call --local --file-root ~/mgmt/srvsalt/ --pillar-root ~/mgmt/srvpillar/ state.highstate` Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.
+Salt-tilojen ajaminen omasta varastosta onnistuu helposti, ohjaamalla komennot oikeaan kansioon:  
+`wget https://raw.githubusercontent.com/jisosomppi/mgmt/master/startup.sh && bash startup.sh` Ajaa tekemäni startup-skriptin, joka mm. kloonaa tällä kurssilla käyttämäni Git-repon  
+`sudo salt-call --local --file-root ~/mgmt/srvsalt/ --pillar-root ~/mgmt/srvpillar/ state.highstate` Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.  
