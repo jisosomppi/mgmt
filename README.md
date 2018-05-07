@@ -305,6 +305,12 @@ Määritin uuden minionin salt-ID:ksi "rogueminion", joka ei vastaa yhtään osu
 >
 >c) Aja oma Salt-tila suoraan git-varastosta. Voit joko tehdä tilan alusta lähtien itse tai forkata sirottimen.
 
+### H5a)
+Varasin kurssin lopputehtävän aiheeksi Samba-tiedostopalvelimen asennuksen ja konfiguroinnin.
+
+### H5b)
+Tämä raportti on laadittu Markdownilla, joskaan ei varmasti täydellisesti sitä käyttäen.
+
 ### H5c)
 Salt-tilojen ajaminen omasta varastosta onnistuu helposti, ohjaamalla komennot oikeaan kansioon: 
 
