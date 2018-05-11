@@ -296,3 +296,26 @@ Määritin pillariin kolmelle eri konetyypille kaksi eri muuttujaa, ssh-portin j
 Määritin uuden minionin salt-ID:ksi "rogueminion", joka ei vastaa yhtään osumaa pilarissa. Tämän jälkeen testasin `hello`-tilaa, joka luo minioneille tiedoston `/tmp/helloworld.txt`. Komento loi halutusti tuon tiedoston jokaiselle minionille, jonka jälkeen tarkistin sen sisällön kultakin koneelta:
 
 ![screenshot10](https://github.com/jisosomppi/mgmt/blob/master/images/Screenshot_2018-04-23_12-53-28.png?raw=true "Screenshot 10")
+
+## H5
+
+>a) Valitse aihe omaksi kurssityöksi ja varaa se kommenttina aikataulusivun perään.
+>
+>b) Julkaise raportti MarkDownilla. Jos käytät GitHub:ia, se tekee muotoilun automaattisesti “.md”-päätteisiin dokumentteihin.
+>
+>c) Aja oma Salt-tila suoraan git-varastosta. Voit joko tehdä tilan alusta lähtien itse tai forkata sirottimen.
+
+### H5a)
+Varasin kurssin lopputehtävän aiheeksi Samba-tiedostopalvelimen asennuksen ja konfiguroinnin.
+
+### H5b)
+Tämä raportti on laadittu Markdownilla, joskaan ei varmasti täydellisesti sitä käyttäen.
+
+### H5c)
+Salt-tilojen ajaminen omasta varastosta onnistuu helposti, ohjaamalla komennot oikeaan kansioon: 
+
+`wget https://raw.githubusercontent.com/jisosomppi/mgmt/master/startup.sh && bash startup.sh`  
+Ajaa tekemäni startup-skriptin, joka mm. kloonaa tällä kurssilla käyttämäni Git-repon  
+
+`sudo salt-call --local --file-root ~/mgmt/srvsalt/ --pillar-root ~/mgmt/srvpillar/ state.highstate`  
+Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.  
