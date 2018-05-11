@@ -319,3 +319,12 @@ Ajaa tekemäni startup-skriptin, joka mm. kloonaa tällä kurssilla käyttämän
 
 `sudo salt-call --local --file-root ~/mgmt/srvsalt/ --pillar-root ~/mgmt/srvpillar/ state.highstate`  
 Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.  
+
+## H6
+
+>a) Kultainen polku. Tee ensimmäinen versio modulistasi, joka toimii ainakin optimiolosuhteissa. Jos jokin säätö on poikkeuksellisen hankala, voit tehdä sen tässä versiossa käsin, ja dokumentoida ajamasi käskyt. (Valmis moduli tarvitaan vasta esitykseen ensi viikolla).
+>
+>b) Kokeile moduliasi tyhjässä koneessa. Voit käyttää virtualboxia, vagranttia tai livetikkua.
+>
+>c) Käyttäjätarina (user story): ketkä ovat modulisi käyttäjät? Mitä he haluavat saada aikaan modulillasi? Missä tilanteessa he sitä käyttävät? Mitkä ovat tärkeimmät parannukset käyttäjän kannalta, joita moduliin pitäisi vielä tehdä? Tähän c-kohtaan vain sanallinen vastaus, tämä kohta ei poikkeuksellisesti edellytä testejä tietokoneella.
+
