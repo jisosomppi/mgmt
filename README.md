@@ -334,3 +334,6 @@ Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.
 >
 >c) Käyttäjätarina (user story): ketkä ovat modulisi käyttäjät? Mitä he haluavat saada aikaan modulillasi? Missä tilanteessa he sitä käyttävät? Mitkä ovat tärkeimmät parannukset käyttäjän kannalta, joita moduliin pitäisi vielä tehdä? Tähän c-kohtaan vain sanallinen vastaus, tämä kohta ei poikkeuksellisesti edellytä testejä tietokoneella.
 
+### H6a)
+
+Samba-modulini tehtävänä olisi luoda toimiva tiedostopalvelin, johon saisi helposti yhteyden niin Linux- kuin Windows-koneillakin. Tarkoitus olisi myös määrittää palvelimelle sekä julkinen kansio, että tietyille käyttäjille rajattu kansio.
