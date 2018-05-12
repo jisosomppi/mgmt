@@ -12,6 +12,13 @@
     - source: salt://samba/secretfile.txt
     - makedirs: True
 
+jussi:
+  user.present:
+    shell: /bin/bash
+    home: /home/user1
+    groups:
+      - secret
+
 smbd:
   service.running:
     - watch:
