@@ -1,3 +1,9 @@
+---
+post_title: 'GitHub - Centralized server management with SaltStack'
+layout: post
+published: true
+---
+
 # Salt-based centralized configuration management
 **Jussi Isosomppi, 2018**
 
