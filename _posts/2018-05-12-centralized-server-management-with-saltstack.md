@@ -1,12 +1,16 @@
 ---
-ID: 492
-post_title: 'Centralized server management with SaltStack'
+ID: 469
+post_title: >
+  Centralized server management with
+  SaltStack
 author: jussi
+post_excerpt: ""
 layout: post
+permalink: >
+  http://jisosomppi.me/2018/05/12/centralized-server-management-with-saltstack/
 published: true
 post_date: 2018-05-12 09:52:00
 ---
-
 # Salt-based centralized configuration management
 **Jussi Isosomppi, 2018**
 
@@ -42,7 +46,7 @@ Tämän jälkeen testasin toimivuutta ajamalla komennon `sudo salt '*' cmd.run '
 Kansion `/srv/salt` sisältö on seuraava:
 ``` yaml
 jussi@conman-VM:/srv/salt$ tail -n +1 *
-==> basicapps.sls <==
+==&gt; basicapps.sls &lt;==
 basic_apps:
   pkg.installed:
     - pkgs:
@@ -50,19 +54,19 @@ basic_apps:
       - tree
       - git
 
-==> hello.sls <==
+==&gt; hello.sls &lt;==
 /tmp/helloworld.txt:
   file.managed:
     - source: salt://helloworld.txt
 
-==> helloworld.txt <==
+==&gt; helloworld.txt &lt;==
 Hello salty world!
 
 // Created by salt-master
 
-==> top.sls <==
+==&gt; top.sls &lt;==
 base:
-  '*':
+  &#039;*&#039;:
     - hello
     - basicapps
 ```
@@ -77,11 +81,11 @@ Lainasin Jori Laineen [LAMP-tilaa](https://github.com/joonaleppalahti/CCM/blob/m
 ### H1e)
 Komennolla `sudo salt '*' grains.item virtual` sain tarkistettua, että virtuaalikoneeni on virtuaalinen:
 ```
-jussi@conman-VM:/srv/salt$ sudo salt '*' grains.item virtual
-[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
-[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
-[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
-[WARNING ] Key 'file_ignore_glob' with value None has an invalid type of NoneType, a list is required for this value
+jussi@conman-VM:/srv/salt$ sudo salt &#039;*&#039; grains.item virtual
+[WARNING ] Key &#039;file_ignore_glob&#039; with value None has an invalid type of NoneType, a list is required for this value
+[WARNING ] Key &#039;file_ignore_glob&#039; with value None has an invalid type of NoneType, a list is required for this value
+[WARNING ] Key &#039;file_ignore_glob&#039; with value None has an invalid type of NoneType, a list is required for this value
+[WARNING ] Key &#039;file_ignore_glob&#039; with value None has an invalid type of NoneType, a list is required for this value
 conman-VM:
     ----------
     virtual:
@@ -239,7 +243,7 @@ Jonka jälkeen tarkistin tilan toimineen toivotusti:
 Tein for in -silmukan, joka tekee `/tmp`-kansioon alikansion ja kolme testitiedostoa:
 
 ``` python
-{% for testfile in ['testone.txt', 'testtwo.txt', 'testthree.txt'] %}
+{% for testfile in [&#039;testone.txt&#039;, &#039;testtwo.txt&#039;, &#039;testthree.txt&#039;] %}
 
 /tmp/loop/{{ testfile }}:
   file.managed:
@@ -336,4 +340,3 @@ Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.
 >b) Kokeile moduliasi tyhjässä koneessa. Voit käyttää virtualboxia, vagranttia tai livetikkua.
 >
 >c) Käyttäjätarina (user story): ketkä ovat modulisi käyttäjät? Mitä he haluavat saada aikaan modulillasi? Missä tilanteessa he sitä käyttävät? Mitkä ovat tärkeimmät parannukset käyttäjän kannalta, joita moduliin pitäisi vielä tehdä? Tähän c-kohtaan vain sanallinen vastaus, tämä kohta ei poikkeuksellisesti edellytä testejä tietokoneella.
-
