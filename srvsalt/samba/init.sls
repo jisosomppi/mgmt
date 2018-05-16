@@ -27,9 +27,9 @@ secret:
   user.present:
     - home: {{ args['home'] }}
     - shell: {{ args['shell'] }}
-    - uid: {{ args['uid'] }}
-    - gid: {{ args['gid'] }}
     - password: {{ args['password'] }}
+    - groups:
+      {{ args['groups'] }}
 {% endfor %}
 
 smbd:
