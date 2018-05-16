@@ -18,6 +18,21 @@ samba:
     - source: salt://samba/secretfile.txt
     - makedirs: True
 
+# Create users on target minion
+secret:
+  group.present:
+    - gid: 1337
+
+{% for user, args in pillar['fs'].iteritems() %}
+{{ user }}:
+  user.present:
+    - home: {{ args['home'] }}
+    - shell: {{ args['shell'] }}
+    - password: {{ args['password'] }}
+    - groups:
+      - {{ args['groups'] }}
+{% endfor %}
+
 smbd:
   service.running:
     - watch:
