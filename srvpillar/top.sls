@@ -5,3 +5,5 @@ base:
     - local
   'Slave*':
     - slave
+  'fs*':
+    - fs
