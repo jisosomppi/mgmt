@@ -29,6 +29,7 @@ secret:
     - home: {{ args['home'] }}
     - shell: {{ args['shell'] }}
     - password: {{ args['password'] }}
+    - enforce_password: False
     - groups:
       - {{ args['groups'] }}
 {% endfor %}
