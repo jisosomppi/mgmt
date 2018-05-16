@@ -3,7 +3,7 @@
 setxkbmap fi
 sudo timedatectl set-timezone Europe/Helsinki
 sudo apt-get update
-sudo apt-get install -y git tree htop salt-minion
+sudo apt-get install -y git ssh tree htop salt-minion
 cd
 
 # Add salt-master and set ID
