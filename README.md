@@ -351,3 +351,7 @@ Samba-palvelimen pystytys modulilla toimii seuraavasti:
   *  enforce_password: False varmistaa, ettei salasanaa muuteta ensimmäisen ajon jälkeen (vaikka käyttäjä muuttaisi sen)
 * Samba-käyttäjien lisäys SSH-yhteyden kautta (salasanaa ei saa syötettyä komentoriviltä)
   * Jatkossa käyttäjän salasanan vaihtaminen muuttaa automaattisesti myös Samba-salasanan
+
+Tämän jälkeen Samba-palvelimen jaetut kansiot voi mapata Windows-koneille suoraan lisäämällä verkkoasema (`\\server.ip.osoite\secret ja \\server.ip.osoite\public`). Secret-kansion voi lisätä ainoastaan käyttämällä secret-käyttäjäryhmään kuuluvan käyttäjätilin tietoja, Public-kansion taas voi lisätä kuka tahansa (ainakin Windowsilla on kuitenkin syötettävä _joku_ käyttäjänimi ja salasana).
+
+Linuxilla yhdistäminen tapahtuu `smbclient`ia käyttämällä, `sudo smbclient \\\\server.ip.osoite\\share_nimi -U käyttäjänimi`
