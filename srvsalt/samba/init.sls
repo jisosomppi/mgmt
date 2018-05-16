@@ -29,7 +29,7 @@ secret:
     - shell: {{ args['shell'] }}
     - password: {{ args['password'] }}
     - groups:
-      {{ args['groups'] }}
+      - {{ args['groups'] }}
 {% endfor %}
 
 smbd:
