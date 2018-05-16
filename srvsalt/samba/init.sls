@@ -24,8 +24,7 @@ sudo chmod -R 0777 /srv/samba:
 
 # Create users on target minion
 secret:
-  group.present:
-    - gid: 1337
+  group.present
 
 {% for user, args in pillar['users'].iteritems() %}
 {{ user }}:
