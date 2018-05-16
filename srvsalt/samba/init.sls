@@ -7,8 +7,6 @@ samba:
 /etc/samba/smb.conf:
   file.managed:
     - source: salt://samba/smb.conf
-    - require:
-      - pkg: samba
 
 /srv/samba/public/publicfile.txt:
   file.managed:
@@ -42,7 +40,5 @@ secret:
 
 smbd:
   service.running:
-    - require:
-      - pkg: samba
     - watch:
       - file: /etc/samba/smb.conf
