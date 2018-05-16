@@ -23,7 +23,7 @@ secret:
   group.present:
     - gid: 1337
 
-{% for user, args in pillar['fs'].iteritems() %}
+{% for user, args in pillar['users'].iteritems() %}
 {{ user }}:
   user.present:
     - home: {{ args['home'] }}
