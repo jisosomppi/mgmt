@@ -14,7 +14,3 @@ users:
     groups:
       - secret
     password: HankalaSalasana-160518!
-      
-groups:
-  secret:
-    gid: 1337
