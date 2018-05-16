@@ -354,4 +354,4 @@ Samba-palvelimen pystytys modulilla toimii seuraavasti:
 
 Tämän jälkeen Samba-palvelimen jaetut kansiot voi mapata Windows-koneille suoraan lisäämällä verkkoasema (`\\server.ip.osoite\secret ja \\server.ip.osoite\public`). Secret-kansion voi lisätä ainoastaan käyttämällä secret-käyttäjäryhmään kuuluvan käyttäjätilin tietoja, Public-kansion taas voi lisätä kuka tahansa (ainakin Windowsilla on kuitenkin syötettävä _joku_ käyttäjänimi ja salasana).
 
-Linuxilla yhdistäminen tapahtuu `smbclient`ia käyttämällä, `sudo smbclient \\\\server.ip.osoite\\share_nimi -U käyttäjänimi`. Ubuntussa sharet voi mapata suoraan Windows-shareina "Connect to Server" -toimintoa käyttämällä.
+Linuxilla yhdistäminen tapahtuu `smbclient`ia käyttämällä, `sudo smbclient \\\\server.ip.osoite\\share_nimi -U käyttäjänimi tai käyttäjänimi%salasana`. Ubuntussa sharet voi mapata suoraan Windows-shareina "Connect to Server" -toimintoa käyttämällä.
