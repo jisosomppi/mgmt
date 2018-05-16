@@ -18,12 +18,9 @@ samba:
     - source: salt://samba/secretfile.txt
     - makedirs: True
 
-{% for group, args in pillar['fs'].iteritems() %}
-{{ group }}:
+secret:
   group.present:
-    - name: {{ group }}
-    - gid: {{ args['gid'] }}
-{% endfor %}
+    - gid: 1337
 
 {% for user, args in pillar['fs'].iteritems() %}
 {{ user }}:
