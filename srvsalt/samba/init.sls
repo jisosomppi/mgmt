@@ -18,43 +18,22 @@ samba:
     - source: salt://samba/secretfile.txt
     - makedirs: True
 
-secret:
-  group.present:
-    - gid: 1337
-    - system: True
-
 {% for group, args in pillar['fs'].iteritems() %}
 {{ group }}:
   group.present:
     - name: {{ group }}
     - gid: {{ args['gid'] }}
+{% endfor %}
 
 {% for user, args in pillar['fs'].iteritems() %}
 {{ user }}:
-  group.present:
-    - gid: {{ args['gid'] }}
   user.present:
     - home: {{ args['home'] }}
     - shell: {{ args['shell'] }}
     - uid: {{ args['uid'] }}
     - gid: {{ args['gid'] }}
-
-jussi:
-  user.present:
-    - uid: 1001
-    - shell: /bin/bash
-    - home: /home/jussi
-    - groups:
-      - secret
-
-markku:
-  user.present:
-    - uid: 1002
-    - shell: /bin/bash
-    - home: /home/markku
-    - groups:
-      - secret
-
+    - password: {{ args['password'] }}
+{% endfor %}
 
 smbd:
   service.running:
