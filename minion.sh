@@ -8,5 +8,5 @@ cd
 
 sudo service salt-minion stop
 sudo rm /etc/salt/minion
-echo "master: ip_address_here\nid: fs-1" | sudo tee /etc/salt/minion
+echo "master: 172.28.171.118\nid: fs-1" | sudo tee /etc/salt/minion
 sudo service salt-minion start
