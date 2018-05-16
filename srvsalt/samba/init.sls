@@ -20,6 +20,9 @@ samba:
     - source: salt://samba/secretfile.txt
     - makedirs: True
 
+sudo chmod -r 0777 /srv/samba:
+  cmd.run
+
 # Create users on target minion
 secret:
   group.present:
