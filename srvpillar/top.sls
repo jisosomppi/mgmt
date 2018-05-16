@@ -1,9 +1,12 @@
 base:
+  '*':
+    - users
+    
   'remote*':
     - remote
   'local*':
     - local
   'Slave*':
     - slave
-  'fs*':
-    - fs
+  'slave*':
+    - slave
