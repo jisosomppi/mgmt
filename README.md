@@ -334,3 +334,20 @@ Ohjaa Saltin oikeaan kansioon, ja ajaa top.sls -tilaan määritetyt komennot.
 ### H6a)
 
 Samba-modulini tehtävänä olisi luoda toimiva tiedostopalvelin, johon saisi helposti yhteyden niin Linux- kuin Windows-koneillakin. Tarkoitus olisi myös määrittää palvelimelle sekä julkinen kansio, että tietyille käyttäjille rajattu kansio. Kaikki salaiset tiedot pyydetään pilarista.
+
+### H6c)
+
+Modulin on tarkoitus helpottaa samba-tiedostopalvelimen käyttöönottoa. Käyttäjiksi valikoituisivat varmasti lähinnä kotikäyttäjät, kiitos samban kyseenalaisen tietoturvan. 
+
+## Moduli
+
+Samba-palvelimen pystytys modulilla toimii seuraavasti:
+
+* Master-minion arkkitehtuurin pystytys
+* Salasanojen luominen komennolla `sudo salt '*' shadow.get_password Salasana_Tähän`
+* Salasanojen lisääminen pilariin
+* Masterin uudelleenkäynnistys (tai pilarin päivitys)
+* Tilan ajaminen minionille
+  *  enforce_password: False varmistaa, ettei salasanaa muuteta ensimmäisen ajon jälkeen (vaikka käyttäjä muuttaisi sen)
+* Samba-käyttäjien lisäys SSH-yhteyden kautta (salasanaa ei saa syötettyä komentoriviltä)
+  * Jatkossa käyttäjän salasanan vaihtaminen muuttaa automaattisesti myös Samba-salasanan
